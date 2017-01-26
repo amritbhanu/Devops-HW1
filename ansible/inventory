@@ -1,0 +1,2 @@
+digitalocean ansible_ssh_host=67.205.161.146 ansible_ssh_user=root ansible_ssh_private_key_file=~/.ssh/id_rsa
+aws ansible_ssh_host=52.10.38.138 ansible_ssh_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
