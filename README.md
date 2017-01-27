@@ -1,4 +1,3 @@
-# HW1
 ## Devops Homework-1 Provisioning Servers
 
 This readme will provide on howto provision servers on remote VM's using serice providers such as DigitalOcean and Amazon AWS. 
@@ -45,17 +44,30 @@ cd ansible
 ansible-playbook playbook.yml -i inventory
 ```
 
-## Demo video explaining the procedure
-[Server Provisioning] (https://www.youtube.com/watch?v=7i3DgrM9-uo&feature=youtu.be)
+## ScreenCast
+[Server Provisioning] (https://youtu.be/MBpCYnQpfBs)
 
 ## Concept Questions
 1. Define idempotency. Give two examples of an idempotent operation and non-idempotent operation.
    - Applying the same operation multiple times should result in the same state. In other words, A system should be able to reach a desired state, regardless of its current state.
    - Idempotent examples - In REST API, GET method. And also GIT PULL command. Both these examples will do the changes which they are suppose to do and will reach to the same state.
    - Non-Idempotent examples - PUT method and GIT PUSH command.
+
 2. Describe several issues related to management of your inventory.
    - Dependency packages take a version name, if specified then there is a possibility that, that version is not available anymore. This will create problem.
    - If you don't specify a version then, there is a possibility that it will download latest one and then break the subsequent build process.
-   - You will have to keep revising the package versions for a successful build.
+   - It becomes quite difficult to decide what to write in inventory
+   - If there is any incomplete or wrong information it will not work
+   - Need to maintain inventory list
+
 3. Describe two configuration models. What are disadvantages and advantages of each model?
+   - The push configuration model, pushes the configurations to all the VMs from the configuration server. The advantage is that it is easy to manage the VMs from 1 server and can make changes with minimal time. But, the disadvantage is if make some configurational changes manually to one of the VMd, they will move from the central configurations and we will now not be able to control that.
+   - The pull configuration model, requires VMs to send their configuration changes to the server. Advantage of this model is flexibility as the asset can register itself to the setup and de-register easily. But it will take a lot manual work and time consuming.
+
 4. What are some of the consquences of not having proper configuration management?
+   - Waste of resources and manpower.
+   - waste of developers time (extra time spent in configuration of resources).
+   - more effort in collaboration.
+   - more disagreement within members in deciding which components to change.
+   - recovery issues in case of accidents.
+
