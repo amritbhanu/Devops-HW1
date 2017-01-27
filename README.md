@@ -1,6 +1,6 @@
 ## Devops Homework-1 Provisioning Servers
 
-This readme will provide on howto provision servers on remote VM's using serice providers such as DigitalOcean and Amazon AWS. 
+This readme will provide on howto provision servers on remote VM's using serice providers such as DigitalOcean and Amazon AWS. This is specific to mac for installing node and npm as brew package manager is used. And if ran on different OS, you will have to install its own packages and also have to modify https://github.com/amritbhanu/Devops-HW1/blob/master/server_provision.sh#L4. But rest of the scripts will work as it is.
 
 ## Instructions on getting started
 a. To get started, you will need to sign up with [DigitalOcean](https://cloud.digitalocean.com/registrations/new) and [Amazon AWS] (https://aws.amazon.com/premiumsupport/signup) .
@@ -18,13 +18,13 @@ AWS_SECRET_KEY
 ```
 e. You need to generate ssh keys for DigitalOcean in your home directory of your machine. The instructions are available [here](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets). This will make sure your local machine is identified by the droplet.
 
-f. Once you have generated ssh keys on your account then you will have to run this command. It will give you an ssh_id which you will have to include it in do/CreateDroplet.js#L35
+f. Once you have generated ssh keys on your account then you will have to run this command. It will give you an ssh_id which you will have to include it in https://github.com/amritbhanu/Devops-HW1/blob/master/do/CreateDroplet.js#L35
 
 ```
 curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer $DIG_OCEAN_TOKEN" "https://api.digitalocean.com/v2/account/keys"
 ```
 
-g. Next for AWS you need to import your id_rsa.pub key into your key-pair category in ec2 dashboard. And name that imported key as, "devop". If you want to change the name of the key, make sure you change it in code as well at aws/CreateInstance.js#L16. Follow these instructions to find where the key-pair [are] (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
+g. Next for AWS you need to import your id_rsa.pub key into your key-pair category in ec2 dashboard. And name that imported key as, "devop". If you want to change the name of the key, make sure you change it in code as well at https://github.com/amritbhanu/Devops-HW1/blob/master/aws/CreateInstance.js#L16. Follow these instructions to find where the key-pair [are] (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
 
 ## Requirements for the repository
 This project need npm and node.js. These dependencies will be installed automatically by running the server_provision.sh shell script. 
